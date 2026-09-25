@@ -12,12 +12,15 @@ export function Display({ className, ...props }: HeadingProps) {
                 `
                 text-5xl
                 md:text-6xl
-                font-bold
+                
                 tracking-tight
                 leading-tight
                 text-foreground
-                font-display
-                font-serif
+                
+            
+                font-leagueSpartan
+                font-black
+                
                 `,
                 className
             )}
