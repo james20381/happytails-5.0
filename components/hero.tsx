@@ -10,7 +10,11 @@ export default function Hero() {
     bg-clip-text
     text-transparent
     tracking-[-0.04em]
-    text-8xl">The Glen</span></Display>
+    font-clashDisplay
+    text-8xl
+    font-black
+
+    ">The Glen</span></Display>
 
         </header>
     )

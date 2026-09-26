@@ -15,11 +15,10 @@ export function Display({ className, ...props }: HeadingProps) {
                 
                 tracking-tight
                 leading-tight
-                text-foreground
+            
                 
             
-                font-leagueSpartan
-                font-black
+                
                 
                 `,
                 className

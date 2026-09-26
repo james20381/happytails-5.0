@@ -5,7 +5,51 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { Archivo_Black, Barlow } from "next/font/google";
 import { Anton, League_Spartan } from "next/font/google";
+import { Titan_One } from "next/font/google";
+import { Russo_One } from "next/font/google";
+import localFont from "next/font/local";
 
+const clashDisplay = localFont({
+    src: [
+        {
+            path: "./fonts/ClashDisplay-Extralight.woff2",
+            weight: "200",
+            style: "normal",
+        },
+        {
+            path: "./fonts/ClashDisplay-Regular.woff2",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "./fonts/ClashDisplay-Medium.woff2",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "./fonts/ClashDisplay-Semibold.woff2",
+            weight: "600",
+            style: "normal",
+        },
+        {
+            path: "./fonts/ClashDisplay-Bold.woff2",
+            weight: "700",
+            style: "normal",
+        },
+    ],
+    variable: "--font-clash",
+});
+
+const russo = Russo_One({
+    variable: "--font-russo",
+    subsets: ["latin"],
+    weight: "400",
+});
+const titan = Titan_One({
+    variable: "--font-titan",
+    subsets: ["latin"],
+    weight: "400",
+});
 const leagueSpartan = League_Spartan({
     variable: "--font-league-spartan",
     subsets: ["latin"],
@@ -49,7 +93,7 @@ export default function RootLayout({
         <html
             lang="en"
             suppressHydrationWarning
-            className={cn("antialiased", serif.variable, "font-sans", sans.variable, "font-archivo-black", archivoBlack.variable, "font-barlow", barlow.variable, "font-anton", anton.variable, "leaqueSpartan", leagueSpartan.variable)}
+            className={cn("antialiased", serif.variable, "font-sans", sans.variable, "font-archivo-black", archivoBlack.variable, "font-barlow", barlow.variable, "font-anton", anton.variable, "leaqueSpartan", leagueSpartan.variable, titan.variable, russo.variable, clashDisplay.variable)}
         >
             <body>
                 <ThemeProvider>{children}</ThemeProvider>
