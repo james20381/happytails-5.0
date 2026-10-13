@@ -22,3 +22,8 @@
     
     add and commit to git first, then run:
         git archive --format zip --output taskflow-dashboard.zip HEAD
+
+    rm -rf .next
+    rm -rf node_modules/.cache
+
+    npm run dev -- --hostname 0.0.0.0

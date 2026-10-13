@@ -10,12 +10,12 @@ export function Display({ className, ...props }: HeadingProps) {
         <h1
             className={cn(
                 `
-                text-5xl
-                md:text-6xl
+                
+                
                 
                 tracking-tight
-                leading-tight
-            
+                leading-none
+                
                 
             
                 
@@ -123,10 +123,11 @@ export function Lead({ className, ...props }: ParagraphProps) {
         <p
             className={cn(
                 `
-                text-lg
-                leading-8
+                text-md
+                lg:text-lg
+                leading-7
                 text-muted-foreground
-                max-w-[70ch]
+                font-sans
                 `,
                 className
             )}
@@ -143,6 +144,8 @@ export function Body({ className, ...props }: ParagraphProps) {
                 text-base
                 leading-7
                 text-muted-foreground
+                font-sans
+                font-bold
                 `,
                 className
             )}

@@ -3,32 +3,20 @@ import { Plus_Jakarta_Sans, DM_Serif_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
-import { Archivo_Black, Barlow } from "next/font/google";
-import { Anton, League_Spartan } from "next/font/google";
-import { Titan_One } from "next/font/google";
-import { Russo_One } from "next/font/google";
-import localFont from "next/font/local";
 
-const clashDisplay = localFont({
+import localFont from "next/font/local";
+import Navbar from "@/components/navbar";
+import { Metadata } from "next";
+
+// const clash = localFont({
+//     src: "./fonts/ClashDisplay-Bold.woff2",
+//     display: "swap",
+// });
+const clash = localFont({
     src: [
         {
-            path: "./fonts/ClashDisplay-Extralight.woff2",
-            weight: "200",
-            style: "normal",
-        },
-        {
-            path: "./fonts/ClashDisplay-Regular.woff2",
-            weight: "400",
-            style: "normal",
-        },
-        {
             path: "./fonts/ClashDisplay-Medium.woff2",
-            weight: "500",
-            style: "normal",
-        },
-        {
-            path: "./fonts/ClashDisplay-Semibold.woff2",
-            weight: "600",
+            weight: "400",
             style: "normal",
         },
         {
@@ -37,41 +25,10 @@ const clashDisplay = localFont({
             style: "normal",
         },
     ],
-    variable: "--font-clash",
+    // variable: "--font-clash",
+    display: "swap",
 });
 
-const russo = Russo_One({
-    variable: "--font-russo",
-    subsets: ["latin"],
-    weight: "400",
-});
-const titan = Titan_One({
-    variable: "--font-titan",
-    subsets: ["latin"],
-    weight: "400",
-});
-const leagueSpartan = League_Spartan({
-    variable: "--font-league-spartan",
-    subsets: ["latin"],
-    weight: "900",
-});
-
-const anton = Anton({
-    variable: "--font-anton",
-    subsets: ["latin"],
-    weight: "400",
-});
-const barlow = Barlow({
-    variable: "--font-barlow",
-    subsets: ["latin"],
-    weight: "900",
-});
-
-const archivoBlack = Archivo_Black({
-    variable: "--font-archivo-black",
-    subsets: ["latin"],
-    weight: "400",
-});
 
 const sans = Plus_Jakarta_Sans({
     subsets: ["latin"],
@@ -84,6 +41,11 @@ const serif = DM_Serif_Display({
     variable: "--font-serif"
 })
 
+export const metadata: Metadata = {
+    title: "Happy Tails",
+    description: "bla",
+};
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -93,10 +55,15 @@ export default function RootLayout({
         <html
             lang="en"
             suppressHydrationWarning
-            className={cn("antialiased", serif.variable, "font-sans", sans.variable, "font-archivo-black", archivoBlack.variable, "font-barlow", barlow.variable, "font-anton", anton.variable, "leaqueSpartan", leagueSpartan.variable, titan.variable, russo.variable, clashDisplay.variable)}
+            className={cn("antialiased", serif.variable, "font-sans", sans.variable, clash.className,)}
         >
             <body>
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                    <Navbar />
+                    <main>
+                        {children}
+                    </main>
+                </ThemeProvider>
             </body>
         </html>
     )
